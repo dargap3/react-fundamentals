@@ -14,13 +14,17 @@ import '../box-styles.css'
 // 🐨 also use the style prop to make the font italic
 // 💰 Here are available style attributes: backgroundColor, fontStyle
 
-const Box = ({size, style, ...otherBoxProps}) => (
-  <div
-    className={`box box--${size}`}
-    style={{fontStyle: 'italic', ...style}}
-    {...otherBoxProps}
-  />
-)
+const Box = ({size, className, style, ...otherBoxProps}) => {
+  const sizeClassName = size ? `box--${size}` : ''
+
+  return (
+    <div
+      className={`box ${className} ${sizeClassName}`}
+      style={{fontStyle: 'italic', ...style}}
+      {...otherBoxProps}
+    />
+  )
+}
 
 function App() {
   return (
